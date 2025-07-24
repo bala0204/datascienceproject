@@ -101,4 +101,19 @@ def save_bin(data: Any, path: Path):
     joblib.dump(value=data, filename=path)
     logger.info(f"Data saved to binary file at {path}")
 
+@ensure_annotations
+def load_bin(path: Path) -> Any:
+    """
+    Loads data from a binary file using joblib.
+
+    Args:
+        path (Path): Path to the binary file.
+
+    Returns:
+        Any: Data loaded from the binary file.
+    """
+    data = joblib.load(filename=path)
+    logger.info(f"Data loaded from binary file at {path}")
+    return data
+
 
